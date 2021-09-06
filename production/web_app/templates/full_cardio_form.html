@@ -1,0 +1,150 @@
+{% extends 'layout.jinja2' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<body>
+
+
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</body>
+
+
+<div class="formwrapper">
+    <h2 class="title">Кардио опросник</h2>
+    <form method="POST">
+
+        <div class="form-field">{{ form.age.label }} {{ form.age }}
+            {% if form.age.errors %}
+            <ul class="errors">
+                {% for error in form.age.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.height.label }} {{ form.height }}
+            {% if form.height.errors %}
+            <ul class="errors">
+                {% for error in form.height.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.weight.label }} {{ form.weight }}
+            {% if form.weight.errors %}
+            <ul class="errors">
+                {% for error in form.weight.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.ap_hi.label }} {{ form.ap_hi }}
+            {% if form.ap_hi.errors %}
+            <ul class="errors">
+                {% for error in form.ap_hi.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.ap_lo.label }} {{ form.ap_lo }}
+            {% if form.ap_lo.errors %}
+            <ul class="errors">
+                {% for error in form.ap_lo.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.gender.label }} {{ form.gender }}
+            {% if form.gender.errors %}
+            <ul class="errors">
+                {% for error in form.gender.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.alco.label }} {{ form.alco }}
+            {% if form.alco.errors %}
+            <ul class="errors">
+                {% for error in form.alco.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.smoke.label }} {{ form.smoke }}
+            {% if form.smoke.errors %}
+            <ul class="errors">
+                {% for error in form.smoke.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.active.label }} {{ form.active }}
+            {% if form.active.errors %}
+            <ul class="errors">
+                {% for error in form.active.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.cholesterol.label }} {{ form.cholesterol }}
+            {% if form.cholesterol.errors %}
+            <ul class="errors">
+                {% for error in form.cholesterol.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="form-field">{{ form.gluc.label }} {{ form.gluc }}
+            {% if form.gluc.errors %}
+            <ul class="errors">
+                {% for error in form.gluc.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        {{ form.submit }}
+        {{ form.csrf_token() }}
+    </form>
+    {% if submission_successful %}
+
+    <div id="something">
+        {% if scroll %}
+        <script>
+            document.location.hash = '#' + 'overlay';
+
+        </script>
+        {% endif %}
+    </div>
+
+    <div id="overlay">
+        <div id="popup">
+            {% if predict %}
+            <p>У Вас диагностирован повышенный риск сердечно-сосудистых заболеваний</p>
+            {% else %}
+            <p>У Вас не диагностирован повышенный риск сердечно-сосудистых заболеваний</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+    {% endif %}
+
+
+</div>
+{% endblock %}

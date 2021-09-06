@@ -1,0 +1,12 @@
+{
+  "boosting_type": "gbdt",
+  "colsample_bytree": 1,
+  "learning_rate": 0.1,
+  "n_estimators": 100,
+  "num_leaves": 5,
+  "objective": "binary",
+  "random_state": 42,
+  "reg_alpha": 3.1622776601683795,
+  "reg_lambda": 3.1622776601683795,
+  "subsample": 1
+}

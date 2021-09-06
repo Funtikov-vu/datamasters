@@ -1,0 +1,9 @@
+pandas
+lightgbm
+sklearn
+flask
+requests
+flask_wtf
+Werkzeug
+WTForms
+scikit-learn
